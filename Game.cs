@@ -1,11 +1,11 @@
 using System;
-/*using Statement.cs*/
-
+using Statement.cs;
+    
 public abstract class Game {
     /*attributs*/
     private string rules;
     private bool answer = false;
-    private string[] statements; */*Passer en Statement*/
+    private Statement[] statements;
     private Inteface interface;
     /*Constructeur*/
     public Game ()
@@ -16,10 +16,10 @@ public abstract class Game {
         get { return rules; }
         set { this.rules = value; }
     }    
-
+    /*méthode*/
     public virtual void evaluateAnswer()
     {
-        /*A compl�ter*/
+        /*A compléter*/
     } 
 
 }
