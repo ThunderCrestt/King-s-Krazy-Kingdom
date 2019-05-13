@@ -13,7 +13,7 @@ namespace K3 {
         public Game(string r, Interface i) {
             this._rules = r;
             this._interface = i;
-            this._statements = []
+            this._statements = [];
         }
         /*Getteur et setteur*/
         public string Rules
@@ -24,7 +24,7 @@ namespace K3 {
 
         public virtual void evaluateAnswer()
         {
-            /*classe abstraite à redéfinir*/
+            /*classe abstraite Ã  redÃ©finir*/
         }
 
     }
