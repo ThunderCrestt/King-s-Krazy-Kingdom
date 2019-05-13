@@ -1,9 +1,13 @@
 ﻿using System;
 
-public class Interface
-{
-    public virtual void display(Game G)
+namespace K3 {
+
+    public class Interface
     {
-        Console.WriteLine(G.rules)
+        public virtual void display(Game G)
+        {
+            Console.WriteLine(G.rules)
+        }
     }
+
 }
