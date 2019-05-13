@@ -1,27 +1,30 @@
 using System;
 
 namespace K3 {
-    /*using Statement.cs*/
 
     public abstract class Game {
         /*attributs*/
-        private string rules;
-        private bool answer = false;
-        private string[] statements; */*Passer en Statement*/
-    private Inteface interface;
+        private string _rules;
+        private bool _answer = false;
+        private Statement[] _statements; 
+        private Inteface _interface;
+
         /*Constructeur*/
-        public Game()
-        { }
+        public Game(string r, Interface i) {
+            this._rules = r;
+            this._interface = i;
+            this._statements = []
+        }
         /*Getteur et setteur*/
         public string Rules
         {
-            get { return rules; }
-            set { this.rules = value; }
+            get { return _rules; }
+            set { this._rules = value; }
         }
 
         public virtual void evaluateAnswer()
         {
-            /*A compléter*/
+            /*classe abstraite à redéfinir*/
         }
 
     }
