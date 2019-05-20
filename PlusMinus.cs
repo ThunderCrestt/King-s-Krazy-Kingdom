@@ -69,7 +69,7 @@ public class PlusMinus : Game
 	{
 		// Affiche score+reset jeu
 		//_interface.displayScore();
-		_data.reste();
+		_data.reset();
 
 	}
 
