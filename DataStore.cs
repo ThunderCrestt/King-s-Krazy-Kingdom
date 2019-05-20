@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace K3 
 {
 	class DataStore
 	{
-		private Statement[] _statements;
+		private List<Statement> _statements = new List<Statement>();
+		private Random rnd = new Random();
 
 		public DataStore(string access)
 		{
@@ -13,12 +16,19 @@ namespace K3
 
 		public void initialize(string access)
 		{
+			string line;
 			//lira la base de donnée, donne nombre d'élément, initialise chacun d'entre eux
-			int nbrelement=5;
-			_statements =new Statement[nbrelement];
+			StreamReader file = new StreamReader(@"store.txt");
+			int nbrelement = int.Parse(file.ReadLine());			
 			for(int i =0; i<nbrelement;i++)
 			{
-				_statements[i]=new Statement(15 ,"coucou","oui",true);
+				line = file.ReadLine();
+				if(line ==null){}
+
+				int d = int.Parse(file.ReadLine());
+				string sta = file.ReadLine();
+				string source = file.ReadLine();
+				_statements.Add(new Statement(d ,sta,source));
 			}
 		}
 
@@ -31,9 +41,17 @@ namespace K3
 		}
 
 
-		public Statement giveStatement(int index)
+		public Statement giveStatement()
 		{
-			return _statements[index];
+			if(_statements.Count>0)
+			{
+				int index = rnd.Next(_statements.Count);
+				Statement si = _statements[index];
+				_statements.RemoveAt(index);
+				return si;
+			}
+			else
+			{return new Statement(0,"fini","bravo");}
 		}
 
 
