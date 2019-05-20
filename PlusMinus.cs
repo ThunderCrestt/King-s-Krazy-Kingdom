@@ -20,7 +20,7 @@ public class PlusMinus : Game
 		_score++;
 	}
 
-	public void evaluateAnswer(string ans)
+	public bool evaluateAnswer(string ans)
 	{
 		bool testAns = false;
 		string truAns;
@@ -56,6 +56,7 @@ public class PlusMinus : Game
 		{
 			this.looplose();
 		}
+		return testans;
 	}
 
 	private void loopWin()
