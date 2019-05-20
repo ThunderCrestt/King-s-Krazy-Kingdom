@@ -4,7 +4,7 @@ using System.IO;
 
 namespace K3 
 {
-	class DataStore
+	public class DataStore
 	{
 		private List<Statement> _statements = new List<Statement>();
 		private Random rnd = new Random();

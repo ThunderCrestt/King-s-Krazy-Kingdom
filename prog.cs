@@ -9,26 +9,9 @@ class main
 
 	public static void Main()
 	{
+		TextInterface inText = new TextInterface();
+		DataStore datas= new DataStore("store.txt");
 
-		Console.WriteLine("test");
-		DataStore d = new DataStore("/");
-		d.reset();
-		Statement a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
-		a = d.giveStatement();
-		Console.WriteLine(a.data);
 
 	}
 

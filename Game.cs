@@ -6,20 +6,29 @@ namespace K3 {
         /*attributs*/
         private string _rules;
         private bool _answer = false;
-        private Statement[] _statements; 
-        private Inteface _interface;
+        private Statement[] _statements = new Statement[2]; 
+        private Interface _interface;
 
         /*Constructeur*/
         public Game(string r, Interface i) {
             this._rules = r;
             this._interface = i;
-            this._statements = [];
         }
         /*Getteur et setteur*/
-        public string Rules
+        public string rules
         {
             get { return _rules; }
             set { this._rules = value; }
+        }
+
+        public void setStatements(int index,Statement sta)
+        {
+            _statements[index]=sta;
+        }
+
+        public Statement getStatements(int index)
+        {
+            return _statements[index];
         }
 
         public virtual void evaluateAnswer()

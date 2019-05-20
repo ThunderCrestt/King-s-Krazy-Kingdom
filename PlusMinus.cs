@@ -1,5 +1,5 @@
-using Game.cs
-using DataStore
+using System;
+using System.IO;
 namespace K3 {
 
 public class PlusMinus : Game
@@ -7,12 +7,24 @@ public class PlusMinus : Game
 	private int _score;
 	private DataStore _data;
 
-	public PlusMinus(string rules, Interface inter,DataStore data)
-					: base(rules, inter )
+	StreamReader file = new StreamReader(@"rules.txt");
+	static string rules = "aha";
+
+	public PlusMinus(Interface inter,DataStore data)
+					: base(rules , inter )
 	{
 			_score = 0;
-			_data = data
-			Statement[] _statements = new Statement[] {_data.giveStatement(),_data.giveStatement()};
+			_data = data;
+
+
+			setStatements(0,_data.giveStatement());
+			setStatements(1,_data.giveStatement());
+	}
+
+
+	public int score
+	{
+		get{return _score;}
 	}
 
 	private void addScore() 
@@ -20,18 +32,19 @@ public class PlusMinus : Game
 		_score++;
 	}
 
+
 	public bool evaluateAnswer(string ans)
 	{
 		bool testAns = false;
 		string truAns;
 
-		if (_statements[0].data > _statements[1].data) 
+		if (getStatements(0).data > getStatements(1).data) 
 		{
-			string truAns = "-";
+			truAns = "-";
 		}
 		else
 		{
-			string truAns = "+";
+			truAns = "+";
 		}
 
 		if (ans == truAns)
@@ -43,26 +56,27 @@ public class PlusMinus : Game
 			testAns = false;
 		}
 
-		if (_statements[0].data == _statements[1].data) 
+		if (getStatements(0).data == getStatements(1).data) 
 		{
 			testAns = true;
 		}
 
-		if testAns 
+		if (testAns) 
 		{
 			this.loopWin();
 		}
 		else
 		{
-			this.looplose();
+			this.loopLose();
 		}
-		return testans;
+
+		return testAns;
 	}
 
 	private void loopWin()
 	{
-		_statements[0] = _statements[1];
-		_statements[1] = _data.giveStatement();
+		setStatements(0,getStatements(1));
+		setStatements(1,_data.giveStatement());
 		this.addScore();
 	}
 
@@ -72,7 +86,7 @@ public class PlusMinus : Game
 		//_interface.displayScore();
 		_data.reset();
 
-	}
+	} 
 
 }
 

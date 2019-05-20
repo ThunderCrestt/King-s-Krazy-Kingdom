@@ -1,10 +1,9 @@
 using System;
-using K3;
 namespace K3 
 {
 
 
-class Statement
+public class Statement
 {
 	private string _statement;
 	private string _source;
