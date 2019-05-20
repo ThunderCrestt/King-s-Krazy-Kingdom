@@ -1,6 +1,7 @@
 using Game.cs
 using DataStore
-namesapce 3K {
+namesapce K3 {
+
 public class PlusMinus : Game
 {
 	private int _score;
