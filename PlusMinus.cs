@@ -1,6 +1,6 @@
 using Game.cs
 using DataStore
-namesapce K3 {
+namespace K3 {
 
 public class PlusMinus : Game
 {
