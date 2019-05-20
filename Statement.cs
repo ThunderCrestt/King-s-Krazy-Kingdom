@@ -36,6 +36,7 @@ class Statement
 	}
 
 	public Statement(double d, string s1,string s2=null,bool b=false)
+
 	{
 		_data=d;
 		_statement=s1;
@@ -44,6 +45,7 @@ class Statement
 	}
 
 }
+
 
 
 }
