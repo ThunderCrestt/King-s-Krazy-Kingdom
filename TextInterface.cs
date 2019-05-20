@@ -1,7 +1,7 @@
 using System;
 namespace K3
 {
-    public class TextInterface //: Interface
+    public class TextInterface : Interface
     {
         //attributs
 
@@ -16,9 +16,9 @@ namespace K3
         //Méthodes
         public void displayStatement(PlusMinus PM)
         {
-            Console.WriteLine("{0} avec {1}", PM.getStatements(0).statement, PM.getStatements(0).data);
+            Console.WriteLine("{0} est le nombre de {1}", PM.getStatements(0).data, PM.getStatements(0).statement);
             Console.WriteLine("A votre avis, c'est plus ou c'est moins que :");
-            Console.WriteLine("{0} avec {1} ?", PM.getStatements(1).statement, PM.getStatements(1).data);
+            Console.WriteLine("le nombre de {0} ?", PM.getStatements(1).statement);
         }
 
         public void displayGame(PlusMinus plusMinus)

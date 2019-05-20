@@ -19,8 +19,8 @@ namespace K3
 			string line;
 			//lira la base de donnée, donne nombre d'élément, initialise chacun d'entre eux
 			StreamReader file = new StreamReader(@"store.txt");
-			int nbrelement = int.Parse(file.ReadLine());			
-			for(int i =0; i<nbrelement;i++)
+			int _nbrelement = int.Parse(file.ReadLine());			
+			for(int i =0; i<_nbrelement;i++)
 			{
 				line = file.ReadLine();
 				if(line ==null){}
@@ -31,6 +31,8 @@ namespace K3
 				_statements.Add(new Statement(d ,sta,source));
 			}
 		}
+
+
 
 		public void reset()
 		{
@@ -51,8 +53,9 @@ namespace K3
 				return si;
 			}
 			else
-			{return new Statement(0,"fini","bravo");}
+			{return new Statement(-1,"fini","bravo");}
 		}
+
 
 
 	} 

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 namespace K3 {
 
 public class PlusMinus : Game
@@ -7,8 +8,7 @@ public class PlusMinus : Game
 	private int _score;
 	private DataStore _data;
 
-	StreamReader file = new StreamReader(@"rules.txt");
-	static string rules = "aha";
+	static string rules = File.ReadAllText(@"rules.txt");
 
 	public PlusMinus(Interface inter,DataStore data)
 					: base(rules , inter )
@@ -33,9 +33,9 @@ public class PlusMinus : Game
 	}
 
 
-	public bool evaluateAnswer(string ans)
+	public int evaluateAnswer(string ans)
 	{
-		bool testAns = false;
+		int testAns = 0;
 		string truAns;
 
 		if (getStatements(0).data > getStatements(1).data) 
@@ -49,35 +49,42 @@ public class PlusMinus : Game
 
 		if (ans == truAns)
 		{
-			testAns = true;
+			testAns = 1;
 		}
 		else 
 		{
-			testAns = false;
+			testAns = 0;
 		}
 
 		if (getStatements(0).data == getStatements(1).data) 
 		{
-			testAns = true;
+			testAns = 1;
 		}
 
-		if (testAns) 
+		if (testAns==1) 
 		{
-			this.loopWin();
+			testAns = this.loopWin();
 		}
-		else
+		else if(testAns==0)
 		{
 			this.loopLose();
 		}
 
+
 		return testAns;
 	}
 
-	private void loopWin()
+	private int loopWin()
 	{
-		setStatements(0,getStatements(1));
-		setStatements(1,_data.giveStatement());
 		this.addScore();
+		setStatements(0,getStatements(1));
+		Statement sta=_data.giveStatement();
+		if(sta.data!=-1)
+		{
+			setStatements(1,sta);
+			return 1;
+		}
+		else{return 2;}
 	}
 
 	private void loopLose()
