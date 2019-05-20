@@ -1,6 +1,6 @@
 using Game.cs
 using DataStore
-
+namesapce 3K {
 public class PlusMinus : Game
 {
 	private int _score;
@@ -71,5 +71,7 @@ public class PlusMinus : Game
 		_data.reste();
 
 	}
+
+}
 
 }
