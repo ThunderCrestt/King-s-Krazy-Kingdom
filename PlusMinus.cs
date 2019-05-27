@@ -1,5 +1,6 @@
-using Game.cs
-using DataStore
+using System;
+using System.IO;
+using System.Text;
 namespace K3 {
 
 public class PlusMinus : Game
@@ -7,12 +8,25 @@ public class PlusMinus : Game
 	private int _score;
 	private DataStore _data;
 
-	public PlusMinus(string rules, Interface inter,DataStore data)
-					: base(rules, inter )
+	static new string rules = File.ReadAllText(@"rules.txt");
+
+	public PlusMinus(Interface inter,DataStore data)
+					: base(rules , inter )
 	{
 			_score = 0;
-			_data = data
-			Statement[] _statements = new Statement[] {_data.giveStatement(),_data.giveStatement()};
+			_data = data;
+
+
+
+
+			setStatements(0,_data.giveStatement());
+			setStatements(1,_data.giveStatement());
+	}
+
+
+	public int score
+	{
+		get{return _score;}
 	}
 
 	private void addScore() 
@@ -20,50 +34,59 @@ public class PlusMinus : Game
 		_score++;
 	}
 
-	public bool evaluateAnswer(string ans)
+
+	public int evaluateAnswer(string ans)
 	{
-		bool testAns = false;
+		int testAns = 0;
 		string truAns;
 
-		if (_statements[0].data > _statements[1].data) 
+		if (getStatements(0).data > getStatements(1).data) 
 		{
-			string truAns = "-";
+			truAns = "-";
 		}
 		else
 		{
-			string truAns = "+";
+			truAns = "+";
 		}
 
 		if (ans == truAns)
 		{
-			testAns = true;
+			testAns = 1;
 		}
 		else 
 		{
-			testAns = false;
+			testAns = 0;
 		}
 
-		if (_statements[0].data == _statements[1].data) 
+		if (getStatements(0).data == getStatements(1).data) 
 		{
-			testAns = true;
+			testAns = 1;
 		}
 
-		if testAns 
+		if (testAns==1) 
 		{
-			this.loopWin();
+			testAns = this.loopWin();
 		}
-		else
+		else if(testAns==0)
 		{
-			this.looplose();
+			this.loopLose();
 		}
-		return testans;
+
+
+		return testAns;
 	}
 
-	private void loopWin()
+	private int loopWin()
 	{
-		_statements[0] = _statements[1];
-		_statements[1] = _data.giveStatement();
 		this.addScore();
+		setStatements(0,getStatements(1));
+		Statement sta=_data.giveStatement();
+		if(sta.data!=-1)
+		{
+			setStatements(1,sta);
+			return 1;
+		}
+		else{_data.reset();return 2;}
 	}
 
 	private void loopLose()
@@ -72,7 +95,7 @@ public class PlusMinus : Game
 		//_interface.displayScore();
 		_data.reset();
 
-	}
+	} 
 
 }
 

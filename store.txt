@@ -9,7 +9,7 @@ arbres coupés par secondes
 MONCUL
 
 18000
-Nombres de gens tristes
+gens tristes
 LE FIGARO
 
 15000000

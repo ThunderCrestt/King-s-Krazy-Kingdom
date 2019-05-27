@@ -1,14 +1,12 @@
-﻿#define DEBUG
-
 using System;
-namespace TEST
+namespace K3
 {
-    public class TexteInterface //: Interface
+    public class TextInterface : Interface
     {
         //attributs
 
         //Constructeur
-        public TexteInterface()
+        public TextInterface()
         {
             //Interface(); //Appel au constructeur de la classe mère.
         }
@@ -16,11 +14,13 @@ namespace TEST
         //Getteur et setteur
 
         //Méthodes
-        public void displayStatement(Statement[] statements)
+        public void displayStatement(PlusMinus PM)
         {
-            Console.WriteLine("{0} avec {1}", statements[0].statement, statements[0].data);
+            Console.WriteLine("{0} est le nombre de {1}", PM.getStatements(0).data, PM.getStatements(0).statement);
             Console.WriteLine("A votre avis, c'est plus ou c'est moins que :");
-            Console.WriteLine("{0} avec {1} ?", statements[1].statement, statements[1].data);
+            Console.WriteLine("le nombre de {0} ?", PM.getStatements(1).statement);
+            Console.WriteLine("");
+            Console.Write("Votre réponse : ");
         }
 
         public void displayGame(PlusMinus plusMinus)
@@ -31,7 +31,11 @@ namespace TEST
 
         public void displayScore(PlusMinus plusMinus)
         {
-            Console.WriteLine("score :{0}",plusMinus.score);
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("score : {0}",plusMinus.score);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace K3 {
     {
         public virtual void display(Game G)
         {
-            Console.WriteLine(G.rules)
+            Console.WriteLine(G.rules);
         }
     }
 

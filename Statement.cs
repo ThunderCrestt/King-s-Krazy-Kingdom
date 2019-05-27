@@ -1,15 +1,13 @@
 using System;
-using K3;
 namespace K3 
 {
 
 
-class Statement
+public class Statement
 {
 	private string _statement;
 	private string _source;
 	private double _data;
-	private bool _mark;
 
 	public string statement
 	{
@@ -29,19 +27,14 @@ class Statement
 		set { _data = value; }
 	}
 
-	public bool mark
-	{
-		get { return _mark;}
-		set {_mark=value;}
-	}
 
-	public Statement(double d, string s1,string s2=null,bool b=false)
+	public Statement(double d, string s1,string s2=null)
 
 	{
 		_data=d;
 		_statement=s1;
 		_source=s2;
-		_mark=b;
+
 	}
 
 }
