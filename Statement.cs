@@ -7,7 +7,7 @@ public class Statement
 {
 	private string _statement;
 	private string _source;
-	private double _data;
+	private long _data;
 
 	public string statement
 	{
@@ -21,14 +21,14 @@ public class Statement
 		set { _source=value;}
 	}
 
-	public double data
+	public long data
 	{
 		get { return _data; }
 		set { _data = value; }
 	}
 
 
-	public Statement(double d, string s1,string s2=null)
+	public Statement(long d, string s1,string s2=null)
 
 	{
 		_data=d;

@@ -28,7 +28,7 @@ namespace K3
 				line = file.ReadLine();
 				if(line ==null){}
 
-				int d = int.Parse(file.ReadLine());
+				long d = long.Parse(file.ReadLine());
 				string sta = file.ReadLine();
 				string source = file.ReadLine();
 				_statements.Add(new Statement(d ,sta,source));

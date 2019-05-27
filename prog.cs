@@ -28,8 +28,8 @@ class main
 			bool erreursaisie = true;
 			while (erreursaisie)
 			{
-				if (saisie == "+"){erreursaisie = false;}
-				else if (saisie == "-"){erreursaisie = false;}
+				if (saisie == "-"){erreursaisie = false;}
+				else if (saisie == "+"){erreursaisie = false;}
 				else 
 				{
 					Console.WriteLine("Entre + ou - s'il te plait");
